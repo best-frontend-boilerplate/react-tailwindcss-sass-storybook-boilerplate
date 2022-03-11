@@ -1,5 +1,5 @@
 {
-  "name": "etf-analysis-tool",
+  "name": "react-tailwindcss-sass-storybook-boilerplate",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,6 +13,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
+    "sass": "^1.49.9",
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"
   },
@@ -20,12 +21,32 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix",
+    "format": "prettier --write ./**/*.{js,jsx,ts,tsx,css,md,json} --config ./.prettierrc",
+    "format:check": "prettier --check ./**/*.{js,jsx,ts,tsx}",
+    "format:write": "prettier --write ./**/*.{js,jsx,ts,tsx}",
+    "format:check:staged": "pretty-quick --staged --check",
+    "format:write:staged": "pretty-quick --staged --write",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
     ]
   },
   "browserslist": {
@@ -39,5 +60,33 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^6.4.19",
+    "@storybook/addon-essentials": "^6.4.19",
+    "@storybook/addon-interactions": "^6.4.19",
+    "@storybook/addon-links": "^6.4.19",
+    "@storybook/builder-webpack5": "^6.4.19",
+    "@storybook/manager-webpack5": "^6.4.19",
+    "@storybook/node-logger": "^6.4.19",
+    "@storybook/preset-create-react-app": "^4.0.1",
+    "@storybook/react": "^6.4.19",
+    "@storybook/testing-library": "^0.0.9",
+    "@typescript-eslint/eslint-plugin": "^5.14.0",
+    "@typescript-eslint/parser": "^5.14.0",
+    "autoprefixer": "^10.4.2",
+    "commitlint": "^16.2.1",
+    "eslint": "^8.10.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.29.3",
+    "husky": "^7.0.4",
+    "postcss": "^8.4.8",
+    "prettier": "^2.5.1",
+    "pretty-quick": "^3.1.3",
+    "storybook": "^6.4.19",
+    "tailwind-styled-components": "^2.1.4",
+    "tailwindcss": "^3.0.23",
+    "webpack": "^5.70.0"
   }
 }
